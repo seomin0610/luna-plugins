@@ -1,83 +1,86 @@
-# Luna Plugins
+[English](./README.md) | [한국어](./README.ko.md)
 
-This is a template & example of how to develop **[Tidal Luna](https://github.com/Inrixia/TidaLuna)** plugins.
+# Luna Plugin Collection
 
-## Getting Started
+A plugin collection for **[TidaLuna](https://github.com/Inrixia/TidaLuna)**.
 
-Follow these steps to create your own Luna plugin using this template:
+## Included Plugins
 
-### 1. Clone the Repository
+### LyricsPorter
+Exports lyrics from the Tidal lyrics view for overlays, tools, or external integrations.
 
-```sh
-git clone https://github.com/Inrixia/luna-template.git luna-plugins
-cd luna-plugins
+Key features:
+- Exports the current lyric line over `HTTP`, `TCP`, or `UDP`.
+- Runs a separate metadata HTTP server on another port.
+- Supports synced lyric parsing from common timed formats (LRC/TTML/JSON-like).
+
+Metadata payload (`/metadata.json`):
+- `title`: current track title
+- `artist`: current track artist name(s)
+- `maxLyricLength`: longest lyric line length in the song
+- `nextLyricLength`: length of the next upcoming timed lyric line
+- `ts`: server timestamp (ms)
+
+Default ports:
+- Lyric output: `1608`
+- Metadata output: `1609`
+
+Useful endpoints:
+- Lyric text: `/lyrics`
+- Lyric JSON: `/lyrics.json`
+- Lyric SSE: `/events`
+- Metadata JSON: `/metadata.json`
+- Metadata SSE: `/events` (metadata server)
+
+```
+{
+  "title": "...",
+  "artist": "...",
+  "maxLyricLength": 23,
+  "nextLyricLength": 12,
+  "ts": 1760000000000
+}
 ```
 
-### 2. Install Node.js (if missing)
+#### Examples of use:
 
-If you don't have Node.js installed, use [nvm](https://github.com/nvm-sh/nvm):
+end4(quickshell) + LyricsPorter
+[video
+](https://cloud.waterwave.space/sharevid/2026-04-11%2021-36-09.mp4)
 
-```sh
-nvm install node
-nvm use node
-```
+### Hunminjeongeum
+Attempts to localize track titles to Korean when Korean metadata is available.
 
-> This will install and use the latest Node.js version.
+Key features:
+- Uses cached results and misses to reduce repeated lookups.
+- Supports manual title overrides.
+- Includes a test mode UI for playback debug info.
 
-### 3. Enable pnpm via Corepack
+## Development
 
-[Corepack](https://nodejs.org/api/corepack.html) is included with Node.js 16.10+.
+Requirements:
+- Node.js 18+
+- `pnpm`
 
-```sh
-corepack enable
-corepack prepare pnpm@latest --activate
-```
-
-### 4. Install Dependencies
-
-```sh
+Setup:
+```bash
 pnpm install
 ```
 
-### 5. Start Developing
+Start watch + local server:
+```bash
+pnpm run watch
+```
 
-- Edit files in the `plugins/Example` directory to build your plugin.
-- Use `pnpm run watch` to build and serve with hot reload.
+## Build Output
 
-> While developing, you can install and test your plugin via the _DEV_ store that should appear under **Plugin Store** in **Luna Settings**  
-> ![image](https://github.com/user-attachments/assets/c159bf00-6feb-41c8-8884-3d9e63070c19)
+Build artifacts are generated in `dist/`, including:
+- Plugin bundles (`*.mjs`)
+- Plugin manifests (`*.json`)
+- `store.json`
 
-### 6. Update the README
+Use `dist/store.json` (or release assets) to install this plugin store in Luna.
 
-Replace this README with information about your plugin:
+## License
 
-- What it does
-- How to use it
-- Any configuration or setup steps
-
-### 7. GitHub Actions: Workflow Permissions
-
-If you want to use the included GitHub Action in (`.github`) to automatically create releases, you must set your repository workflow permissions to **Read and write permissions**:
-
-1. Go to your repository's settings: `Settings > Actions > General` https://github.com/.../.../settings/actions
-1. Under **Workflow permissions**, select **Read and write permissions**.
-1. Click **Save**.
-
-This allows the GitHub Action to create releases on your behalf.
-
-### 8. Install your plugins from GitHub
-
-After your action has build the plugins, you can install from the releases page.
-For example for **@luna/example**  
-https://github.com/.../.../releases/download/latest/luna.example
-
-Or install the store with
-https://github.com/.../.../releases/download/latest/store.json
-
-### 9. PR [TidaLuna](https://github.com/Inrixia/TidaLuna) to add your store
-
-You can open a PR to add your store url to the default stores in client if youd like <3
-
----
-
-For more details, see the [Tidal Luna documentation](https://github.com/Inrixia/TidaLuna).
+See [LICENSE](./LICENSE).

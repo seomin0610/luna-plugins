@@ -1,0 +1,11 @@
+{
+	"name": "LyricsPorter",
+	"description": "A plugin that allows you to export lyrics from the Lyrics tab in the song popout.",
+	"author": {
+		"name": "seomin0610",
+		"url": "https://github.com/seomin0610",
+		"avatarUrl": "https://avatars.githubusercontent.com/u/89498338?v=4&size=64"
+	},
+	"main": "./src/index.ts",
+	"type": "module"
+}
