@@ -1,5 +1,8 @@
 name: "[master] Release"
 
+permissions:
+  contents: write 
+  
 on:
  push:
   paths-ignore:
