@@ -1,5 +1,7 @@
 packages:
  - "plugins/*"
 
-onlyBuiltDependencies:
+allowBuilds: # pnpm 11+
+ esbuild: true
+onlyBuiltDependencies: # pnpm 10
  - esbuild
