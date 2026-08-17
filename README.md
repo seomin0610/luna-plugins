@@ -56,6 +56,19 @@ Key features:
 - Supports manual title overrides.
 - Includes a test mode UI for playback debug info.
 
+### KoreanSearch
+TIDAL does not operate in Korea, so Korean song titles usually return nothing. This plugin detects
+Hangul in the search phrase, resolves the original recording elsewhere, and shows the matches in
+their own section above TIDAL's normal search results.
+
+Key features:
+- Verifying localized titles using Apple Music (iTunes Search API) (The U.S and South Korea share the same track ID)
+- Resolves Korean titles via the MusicBrainz recording search (Latin title, artist aliases, ISRCs)
+- Falls back to scraping the KOMCA (한국음악저작권협회) work search, which registers the English
+- Songs found via ISRC are given priority. Recordings that are exactly the same, regardless of the language used in the title
+
+(No API key is required for any of these processes)
+
 ## Development
 
 Requirements:

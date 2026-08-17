@@ -41,6 +41,8 @@ importers:
 
   plugins/Hunminjeongeum: {}
 
+  plugins/KoreanSearch: {}
+
   plugins/LyricsPorter: {}
 
 packages:

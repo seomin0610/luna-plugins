@@ -1,0 +1,11 @@
+{
+	"name": "KoreanSearch",
+	"description": "한국어 제목으로 검색하면 Apple Music/MusicBrainz/KOMCA로 원곡을 찾아 TIDAL 검색결과 위에 따로 표시하는 플러그인입니다 - A plugin that searches for the original song via Apple Music/MusicBrainz/KOMCA when you search by Korean title and displays the results separately above the TIDAL search results",
+	"author": {
+		"name": "seomin0610",
+		"url": "https://github.com/seomin0610",
+		"avatarUrl": "https://avatars.githubusercontent.com/u/89498338?v=4&size=64"
+	},
+	"main": "./src/index.ts",
+	"type": "module"
+}
