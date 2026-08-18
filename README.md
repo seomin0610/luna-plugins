@@ -57,9 +57,7 @@ Key features:
 - Includes a test mode UI for playback debug info.
 
 ### KoreanSearch
-TIDAL does not operate in Korea, so Korean song titles usually return nothing. This plugin detects
-Hangul in the search phrase, resolves the original recording elsewhere, and shows the matches in
-their own section above TIDAL's normal search results.
+Since TIDAL is not officially available in Korea, Korean-released music is often displayed under English titles. This plugin detects Hangul in your search query, automatically finds the corresponding English title from another source, searches for it on TIDAL, and displays the matching results above the normal TIDAL search results
 
 Key features:
 - Verifying localized titles using Apple Music (iTunes Search API) (The U.S and South Korea share the same track ID)
