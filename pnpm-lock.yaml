@@ -45,6 +45,8 @@ importers:
 
   plugins/LyricsPorter: {}
 
+  plugins/StarryNight: {}
+
 packages:
 
   '@esbuild/aix-ppc64@0.27.7':

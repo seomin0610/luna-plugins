@@ -1,0 +1,123 @@
+:root {
+	--sn-star: #ffffff;
+	--sn-star-glow: #ffffff;
+	--sn-shooting-star: #ffffff;
+	--sn-shooting-star-glow: #ffffff;
+	--sn-rgb-shooting-star-glow: 255, 255, 255;
+	--sn-sky-top: #000000;
+	--sn-sky-bottom: #142b44;
+}
+
+body,
+#nowPlaying {
+	background: linear-gradient(180deg, var(--sn-sky-top) 0%, var(--sn-sky-bottom) 100%) fixed !important;
+}
+
+#wimp,
+main,
+[class^="_sidebarWrapper"],
+[class^="_mainContainer"],
+[class^="_sectionHeader"],
+[class^="_header"],
+[class*="smallHeader"] {
+	background: unset !important;
+}
+
+#footerPlayer,
+#sidebar,
+[class^="_bar"] {
+	background-color: color-mix(in srgb, var(--sn-sky-bottom), transparent 55%) !important;
+}
+
+.sn-sky {
+	position: fixed;
+	inset: 0;
+	z-index: -1;
+	pointer-events: none;
+	overflow: hidden;
+}
+
+.sn-sky.sn-sky-panel {
+	position: absolute;
+	z-index: 0;
+}
+
+.sn-star {
+	position: absolute;
+	border-radius: 50%;
+	background-color: var(--sn-star);
+}
+
+/*
+Pure CSS Shooting Star Animation Effect Copyright (c) 2021 by Delroy Prithvi
+(https://codepen.io/delroyprithvi/pen/LYyJROR) - MIT-style permission notice, see README.
+*/
+.sn-shootingstar {
+	position: absolute;
+	width: 4px;
+	height: 4px;
+	background: var(--sn-shooting-star);
+	border-radius: 50%;
+	animation: sn-shoot 3s linear;
+	left: initial;
+}
+
+.sn-shootingstar::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 300px;
+	height: 1px;
+	background: linear-gradient(90deg, var(--sn-shooting-star), transparent);
+}
+
+@keyframes sn-shoot {
+	0% {
+		transform: rotate(315deg) translateX(0);
+		opacity: 1;
+	}
+	70% {
+		opacity: 1;
+	}
+	100% {
+		transform: rotate(315deg) translateX(-1500px);
+		opacity: 0;
+	}
+}
+
+@keyframes sn-twinkle1 {
+	0% { box-shadow: 0px 0px 8px 2px var(--sn-star-glow); }
+	20% { box-shadow: 0px 0px -8px 2px var(--sn-star-glow); }
+	40% { box-shadow: 0px 0px -8px 2px var(--sn-star-glow); }
+	60% { box-shadow: 0px 0px -8px 2px var(--sn-star-glow); }
+	80% { box-shadow: 0px 0px 8px 2px var(--sn-star-glow); }
+	100% { box-shadow: 0px 0px 8px 2px var(--sn-star-glow); }
+}
+
+@keyframes sn-twinkle2 {
+	0% { box-shadow: 0px 0px 8px 2px var(--sn-star-glow); }
+	20% { box-shadow: 0px 0px 8px 2px var(--sn-star-glow); }
+	40% { box-shadow: 0px 0px -8px 2px var(--sn-star-glow); }
+	60% { box-shadow: 0px 0px -8px 2px var(--sn-star-glow); }
+	80% { box-shadow: 0px 0px -8px 2px var(--sn-star-glow); }
+	100% { box-shadow: 0px 0px 8px 2px var(--sn-star-glow); }
+}
+
+@keyframes sn-twinkle3 {
+	0% { box-shadow: 0px 0px -8px 2px var(--sn-star-glow); }
+	20% { box-shadow: 0px 0px 8px 2px var(--sn-star-glow); }
+	40% { box-shadow: 0px 0px 8px 2px var(--sn-star-glow); }
+	60% { box-shadow: 0px 0px 8px 2px var(--sn-star-glow); }
+	80% { box-shadow: 0px 0px -8px 2px var(--sn-star-glow); }
+	100% { box-shadow: 0px 0px -8px 2px var(--sn-star-glow); }
+}
+
+@keyframes sn-twinkle4 {
+	0% { box-shadow: 0px 0px -8px 2px var(--sn-star-glow); }
+	20% { box-shadow: 0px 0px -8px 2px var(--sn-star-glow); }
+	40% { box-shadow: 0px 0px 8px 2px var(--sn-star-glow); }
+	60% { box-shadow: 0px 0px 8px 2px var(--sn-star-glow); }
+	80% { box-shadow: 0px 0px 8px 2px var(--sn-star-glow); }
+	100% { box-shadow: 0px 0px -8px 2px var(--sn-star-glow); }
+}

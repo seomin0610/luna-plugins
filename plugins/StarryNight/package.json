@@ -1,0 +1,11 @@
+{
+	"name": "StarryNight",
+	"description": "Ported from the https://github.com/spicetify/spicetify-themes/tree/master/StarryNight",
+	"author": {
+		"name": "seomin0610",
+		"url": "https://github.com/seomin0610",
+		"avatarUrl": "https://avatars.githubusercontent.com/u/89498338?v=4&size=64"
+	},
+	"main": "./src/index.ts",
+	"type": "module"
+}
