@@ -117,7 +117,7 @@ const fillSky = (el: HTMLElement, w: number, h: number) => {
 		star.style.width = `${size}px`;
 		star.style.height = `${size}px`;
 		if (Math.random() < 0.2) {
-			star.style.setProperty("animation", `sn-twinkle${Math.floor(Math.random() * 4) + 1} 5s infinite`, "important");
+			star.classList.add("sn-star-twinkle", `sn-star-twinkle-${Math.floor(Math.random() * 4) + 1}`);
 		}
 		el.appendChild(star);
 	}

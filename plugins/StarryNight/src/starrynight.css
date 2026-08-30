@@ -86,38 +86,53 @@ Pure CSS Shooting Star Animation Effect Copyright (c) 2021 by Delroy Prithvi
 	}
 }
 
+/*
+Twinkle pulses the glow only, like the original, but animates the ::after
+pseudo-element's opacity instead of the star's box-shadow. box-shadow is a paint
+property, so animating it repainted every twinkling star on the main thread every
+frame; opacity is composited. The shadow itself is static and rasterises once.
+*/
+.sn-star-twinkle::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: 50%;
+	box-shadow: 0 0 8px 2px var(--sn-star-glow);
+	animation: 5s infinite;
+}
+
+.sn-star-twinkle-1::after { animation-name: sn-twinkle1; }
+.sn-star-twinkle-2::after { animation-name: sn-twinkle2; }
+.sn-star-twinkle-3::after { animation-name: sn-twinkle3; }
+.sn-star-twinkle-4::after { animation-name: sn-twinkle4; }
+
 @keyframes sn-twinkle1 {
-	0% { box-shadow: 0px 0px 8px 2px var(--sn-star-glow); }
-	20% { box-shadow: 0px 0px -8px 2px var(--sn-star-glow); }
-	40% { box-shadow: 0px 0px -8px 2px var(--sn-star-glow); }
-	60% { box-shadow: 0px 0px -8px 2px var(--sn-star-glow); }
-	80% { box-shadow: 0px 0px 8px 2px var(--sn-star-glow); }
-	100% { box-shadow: 0px 0px 8px 2px var(--sn-star-glow); }
+	0% { opacity: 1; }
+	20% { opacity: 0; }
+	60% { opacity: 0; }
+	80% { opacity: 1; }
+	100% { opacity: 1; }
 }
 
 @keyframes sn-twinkle2 {
-	0% { box-shadow: 0px 0px 8px 2px var(--sn-star-glow); }
-	20% { box-shadow: 0px 0px 8px 2px var(--sn-star-glow); }
-	40% { box-shadow: 0px 0px -8px 2px var(--sn-star-glow); }
-	60% { box-shadow: 0px 0px -8px 2px var(--sn-star-glow); }
-	80% { box-shadow: 0px 0px -8px 2px var(--sn-star-glow); }
-	100% { box-shadow: 0px 0px 8px 2px var(--sn-star-glow); }
+	0% { opacity: 1; }
+	20% { opacity: 1; }
+	40% { opacity: 0; }
+	80% { opacity: 0; }
+	100% { opacity: 1; }
 }
 
 @keyframes sn-twinkle3 {
-	0% { box-shadow: 0px 0px -8px 2px var(--sn-star-glow); }
-	20% { box-shadow: 0px 0px 8px 2px var(--sn-star-glow); }
-	40% { box-shadow: 0px 0px 8px 2px var(--sn-star-glow); }
-	60% { box-shadow: 0px 0px 8px 2px var(--sn-star-glow); }
-	80% { box-shadow: 0px 0px -8px 2px var(--sn-star-glow); }
-	100% { box-shadow: 0px 0px -8px 2px var(--sn-star-glow); }
+	0% { opacity: 0; }
+	20% { opacity: 1; }
+	60% { opacity: 1; }
+	80% { opacity: 0; }
+	100% { opacity: 0; }
 }
 
 @keyframes sn-twinkle4 {
-	0% { box-shadow: 0px 0px -8px 2px var(--sn-star-glow); }
-	20% { box-shadow: 0px 0px -8px 2px var(--sn-star-glow); }
-	40% { box-shadow: 0px 0px 8px 2px var(--sn-star-glow); }
-	60% { box-shadow: 0px 0px 8px 2px var(--sn-star-glow); }
-	80% { box-shadow: 0px 0px 8px 2px var(--sn-star-glow); }
-	100% { box-shadow: 0px 0px -8px 2px var(--sn-star-glow); }
+	0% { opacity: 0; }
+	20% { opacity: 0; }
+	40% { opacity: 1; }
+	100% { opacity: 1; }
 }
